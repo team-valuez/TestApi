@@ -10,11 +10,11 @@ def index():
     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 @app.route('/name')
-def index():
+def nam():
     name = request.args.get('name')
     #email = request.args.get('email')
     return jsonify({'name': f'{name}'})
                     #'email': f'{email}'})
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000,host="0.0.0.0")
+
+app.run()
