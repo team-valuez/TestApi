@@ -16,5 +16,11 @@ def nam():
     return jsonify({'name': f'{name}'})
                     #'email': f'{email}'})
 
+@app.route("/add")
+def sum():
+    n1 = int(request.args.get("n1"))
+    n2 = int(request.args.get("n2"))
+    return jsonify({"sum":f"{n1+n2}"})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
