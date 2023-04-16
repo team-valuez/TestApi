@@ -16,6 +16,15 @@ def nam():
     return jsonify({'name': f'{name}'})
                     #'email': f'{email}'})
 
+@app.route('/names', methods=['POST'])
+def process_json():
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.json
+        return json
+    else:
+        return 'Content-Type not supported!'
+
 @app.route("/add")
 def sum():
     n1 = int(request.args.get("n1"))
