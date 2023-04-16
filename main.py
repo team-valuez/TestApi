@@ -12,9 +12,7 @@ def index():
 @app.route('/name')
 def nam():
     name = request.args.get('name')
-    #email = request.args.get('email')
     return jsonify({'name': f'{name}'})
-                    #'email': f'{email}'})
 
 @app.route('/names', methods=['POST'])
 def process_json():
