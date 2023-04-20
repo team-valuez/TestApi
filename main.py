@@ -18,8 +18,9 @@ def nam():
 def process_json():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
-        json = request.json
-        return json
+        data = request.get_json()
+        json = {"URL":data['url'],"text":data["text"]}
+        return jsonify(json)
     else:
         return 'Content-Type not supported!'
 
