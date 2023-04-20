@@ -19,7 +19,17 @@ def process_json():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         data = request.get_json()
-        json = {"URL":data['url'],"text":data["text"]}
+        json = {"URL":"None","text":"None"}
+        print(data)
+        if((data['url'])[:5] == 'https'):
+            json["URL"] = "not phishy"
+        else:
+            json['URL'] = "It seems like phishy"
+        
+        if('number' in json["text"] or "no." in json["text"]):
+            json["text"] = "It seems like phishy"
+        else:
+            json["text"] = "Not sure, need verification from our server"
         return jsonify(json)
     else:
         return 'Content-Type not supported!'
